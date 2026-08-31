@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CypherPixelExpress</title>
+
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #share_gif {
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+        }
+
+        @media (max-width: 600px) {
+            #share_gif {
+                width: 100vw;
+                height: 100vh;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<img id="share_gif" src="gifs/believe.gif" alt="" style="width:498px;height:372px;">
+
+</body>
+<script>
+    const imageElement = document.getElementById("share_gif")
+
+    const gifs = [
+        "gifs/believe.gif",
+        "gifs/all-aboard.gif"
+    ]
+
+    let currentGifIndex = 0;
+
+    function changeGif() {
+        imageElement.src = gifs[currentGifIndex];
+        currentGifIndex = (currentGifIndex + 1) % gifs.length;
+    }
+
+    setInterval(changeGif, 2000);
+</script>
+</html>
