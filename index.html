@@ -20,35 +20,67 @@
 
         }
 
+        #start {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+        }
+
         #share_gif {
             background-color: white;
-            width: 100vw;
-            height: auto ;
+            width: auto;
+            height: 100vh ;
             object-fit: fill;
         }
 
         @media (max-width: 600px) {
             #share_gif {
-                width: 100vh;
-                height: auto;
+                width: auto;
+                height: 100vw;
                 transform: rotate(90deg);
                 object-fit: cover;
                 display:block;
+            }
+
+            #start {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 1000;
+                transform: rotate(90deg), translate(-50%, -50%);
             }
         }
     </style>
 </head>
 <body>
+    <button id="start">🚂 Believe 🎄</button>
 
-<img id="share_gif" src="gifs/believe.gif" alt="">
+    <img id="share_gif" src="gifs/youcoming.gif" alt="">
 
 </body>
 <script>
+
+    const audio = new Audio("believe-official-audio.mp3");
+
+    document.getElementById("start").addEventListener("click", () => {
+        audio.play();
+        setInterval(changeGif, 3000);
+        document.getElementById("start").style.display = "none";
+    });
+
     const imageElement = document.getElementById("share_gif")
 
     const gifs = [
+        "gifs/all-aboard.gif",
+        "gifs/yessss.gif",
+        "gifs/letsdothisthing.gif",
+        "gifs/hotchocolate.gif",
+        "gifs/iloveyouelf.gif",
+        "gifs/northpole.gif",
         "gifs/believe.gif",
-        "gifs/all-aboard.gif"
+        
     ]
 
     let currentGifIndex = 0;
@@ -58,6 +90,6 @@
         currentGifIndex = (currentGifIndex + 1) % gifs.length;
     }
 
-    setInterval(changeGif, 2000);
+    
 </script>
 </html>
