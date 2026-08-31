@@ -7,33 +7,40 @@
     <link rel="icon" href="favicon.png" type="image/x-icon">
 
     <style>
-        body {
+        html, body {
             background-color: black;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+
         }
 
         #share_gif {
+            background-color: white;
             width: 100vw;
-            height: 100vh;
-            object-fit: contain;
+            height: auto ;
+            object-fit: fill;
         }
 
         @media (max-width: 600px) {
             #share_gif {
-                width: 100vw;
-                height: 100vh;
+                width: 100vh;
+                height: auto;
                 transform: rotate(90deg);
+                object-fit: cover;
+                display:block;
             }
         }
     </style>
 </head>
 <body>
 
-<img id="share_gif" src="gifs/believe.gif" alt="" style="width:498px;height:372px;">
+<img id="share_gif" src="gifs/believe.gif" alt="">
 
 </body>
 <script>
